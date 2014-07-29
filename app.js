@@ -23,10 +23,6 @@ app.set('view engine', 'jade');
 //     compile: compile
 //   })
 // );
-function compile(str, path) {
-  return stylus(str)
-    .set('filename', path);
-}
 
 app.use(
   stylus.middleware({
@@ -52,8 +48,15 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
+app.get('/furniture', routes.index);
+app.get('/designers', routes.index);
+app.get('/disclaimer', routes.index);
 // app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
+function compile(str, path) {
+  return stylus(str)
+    .set('filename', path);
+}
