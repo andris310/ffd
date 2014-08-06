@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h3 Add Furniture
+  form(name='addFurniture', method='post', action='/add-furniture').new-form
+    ul
+      li
+        label(for='name') Name
+        input(type='text', id='name', name='name')
+
+      li
+        label(for='designer') Designer
+        input(type='text', id='designer', name='designer')
+
+      li
+        label(for='year') Year
+        input(type='text', id='year', name='year')
+
+      li
+        label(for='description')
+        textarea(cols='60', rows='10', id='description', name='description')
+
+    button(type='submit') Save

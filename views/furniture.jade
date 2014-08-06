@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= title
+  ul
+    each peace, i in furniture
+      li= peace.name
