@@ -1,7 +1,13 @@
 extends layout
 
 block content
+  a(href='/new-furniture') New
   h1= title
   ul
     each peace, i in furniture
       li= peace.name
+      form(action='/destroy-furniture/#{peace._id}', method='post')
+        button(type='submit') Delete
+
+  script.
+    console.log(furniture)

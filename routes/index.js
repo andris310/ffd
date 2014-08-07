@@ -1,6 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var bodyParser = require('body-parser');
+var Furniture = require('../models/furniture');
+
+var mongoose = require('mongoose');
+var dbConfig = require('../config/db');
+mongoose.connect(dbConfig.url);
+var db = mongoose.connection;
 
 /* GET home page. */
 router.get('/', function(req, res) {
@@ -10,20 +15,18 @@ router.get('/', function(req, res) {
 });
 
 router.get('/furniture', function(req, res) {
-  var db = req.db;
-  var collection = db.get('furniturecollection');
-  collection.find({}, {}, function(e, results) {
+  Furniture.find(function(err, furnitures) {
+    if (err) {
+      res.send(err);
+      return;
+    }
+
     res.render('furniture', {
-      "furniture": results
+      furniture: furnitures
     });
   });
 });
 
-router.get('/designers', function(req, res) {
-  res.render('furniture', {
-    title: 'Designers'
-  });
-});
 
 router.get('/new-furniture', function(req, res) {
   res.render('new_furniture', {
@@ -32,59 +35,44 @@ router.get('/new-furniture', function(req, res) {
 });
 
 router.post('/add-furniture', function(req, res) {
-  var db = req.db;
-  var collection = db.get('furniturecollection');
-  console.log(req, 'REQ BODY...');
+  var furniture = new Furniture();
 
-  var payload = {
-    "name": req.body.name,
-    "designer": req.body.designer,
-    "year": req.body.year,
-    "description": req.body.description
-  };
+  furniture.name = req.body.name;
+  furniture.designer = req.body.designer;
+  furniture.year = req.body.year;
+  furniture.description = req.body.description;
 
-  collection.insert(payload, function(err, results) {
+  furniture.save(function(err) {
     if (err) {
       res.send('There was a problem adding information to the database.');
-    } else {
-      res.location('furniture');
-      res.redirect('furniture');
+      return;
     }
 
-
+    res.location('furniture');
+    res.redirect('furniture');
   });
-
 });
 
-/* POST to Add User Service */
-router.post('/adduser', function(req, res) {
+router.delete('/destroy-furniture/:furniture_id', function(req, res) {
+  var furniture = new Furniture();
+  console.log('ID........' + req.params.furniture_id)
+  Furniture.remove({
+    id: req.params.furniture_id
+  }, function(err, furniture) {
+    if (err) {
+      res.send(err);
+      return;
+    }
 
-    // Set our internal DB variable
-    var db = req.db;
+    res.location('furniture');
+    res.redirect('furniture');
+  });
+});
 
-    // Get our form values. These rely on the "name" attributes
-    var userName = req.body.username;
-    var userEmail = req.body.useremail;
-
-    // Set our collection
-    var collection = db.get('usercollection');
-
-    // Submit to the DB
-    collection.insert({
-        "username" : userName,
-        "email" : userEmail
-    }, function (err, doc) {
-        if (err) {
-            // If it failed, return error
-            res.send("There was a problem adding the information to the database.");
-        }
-        else {
-            // If it worked, set the header so the address bar doesn't still say /adduser
-            res.location("userlist");
-            // And forward to success page
-            res.redirect("userlist");
-        }
-    });
+router.get('/designers', function(req, res) {
+  res.render('furniture', {
+    title: 'Designers'
+  });
 });
 
 module.exports = router;

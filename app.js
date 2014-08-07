@@ -24,8 +24,6 @@ var errorHandler = require('errorhandler');
 var mongoose = require('mongoose');
 
 var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/chairs');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -54,12 +52,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// Make our db accessible to our router
-app.use(function(req, res, next){
-    req.db = db;
-    next();
-});
 
 app.use('/', routes);
 
