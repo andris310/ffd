@@ -1,15 +1,12 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express');
 var app = express();
 
 var jade = require('jade');
 var stylus = require('stylus');
-var routes = require('./routes');
-var user = require('./routes/user');
+var staticRt = require('./routes/staticRt');
+var furnitureRt = require('./routes/furnitureRt');
+var designerRt = require('./routes/designerRt');
+var overviewRt = require('./routes/overviewRt');
 var http = require('http');
 var path = require('path');
 
@@ -21,9 +18,9 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var errorHandler = require('errorhandler');
 
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
-var mongo = require('mongodb');
+// var mongo = require('mongodb');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -53,7 +50,10 @@ app.use(bodyParser.urlencoded({
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+app.use('/', staticRt);
+app.use('/', furnitureRt);
+app.use('/', designerRt);
+app.use('/', overviewRt);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -83,12 +83,6 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-// app.get('/', routes.index);
-// app.get('/furniture', routes.index);
-// app.get('/designers', routes.index);
-// app.get('/disclaimer', routes.index);
-// app.get('/users', user.list);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
