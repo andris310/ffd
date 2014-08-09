@@ -8,4 +8,4 @@ exports.db = function() {
     db = mongoose.connection;
   }
   return db;
-}
+};

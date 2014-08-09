@@ -61,10 +61,4 @@ router.delete('/destroy-furniture/:furniture_id', function(req, res) {
   });
 });
 
-router.get('/designers', function(req, res) {
-  res.render('furniture', {
-    title: 'Designers'
-  });
-});
-
 module.exports = router;

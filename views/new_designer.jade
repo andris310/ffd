@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h3= title
+  form(name='addDesigner', method='post', action='/add-designer').new-form
+    ul
+      li
+        label(for='firstName') Name
+        input(type='text', id='firstname', name='firstname')
+
+      li
+        label(for='lastname') Designer
+        input(type='text', id='lastname', name='lastname')
+
+      li
+        label(for='bio') Year
+        textarea(cols='60', rows='10', id='bio', name='bio')
+
+    button(type='submit') Save
