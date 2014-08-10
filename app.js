@@ -18,10 +18,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var errorHandler = require('errorhandler');
 
-// var mongoose = require('mongoose');
-
-// var mongo = require('mongodb');
-
 // all environments
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));

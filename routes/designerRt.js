@@ -24,4 +24,23 @@ router.get('/new-designer', function(req, res) {
   });
 });
 
+// Crete new furniture
+router.post('/add-designer', function(req, res) {
+  var designer = new Designer();
+
+  designer.firstname = req.body.firstname;
+  designer.lastname = req.body.lastname;
+  designer.bio = req.body.bio;
+
+  designer.save(function(err) {
+    if (err) {
+      res.send('There was a problem adding information to the database.');
+      return;
+    }
+
+    res.location('designers');
+    res.redirect('designers');
+  });
+});
+
 module.exports = router;

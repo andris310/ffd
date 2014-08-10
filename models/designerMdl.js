@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var designerSchema = new Schema({
-  firstName: {
+  firstname: {
     type: String,
     required: true
   },
-  lastName: {
+  lastname: {
     type: String,
     required: true
   },

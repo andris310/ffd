@@ -1,12 +1,17 @@
 extends layout
 
 block content
-  a(href='/new-furniture') New
+  a(href='/new-furniture') New Furniture
   ul
     for peace in furniture
       li #{peace.name}
       //- form(action='/destroy-furniture/#{peace._id}', method='post')
       //-   button(type='submit') Delete
+
+  a(href='/new-designer') New Designer
+  ul
+    for designer in designers
+      li #{designer.firsname} #{designer.lastname}
 
   script.
     console.log(furniture)
