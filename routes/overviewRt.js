@@ -36,6 +36,7 @@ router.get('/overview-panel', function(req, res) {
     }
 
     res.render('overview_panel', {
+      alias: 'overview_panel',
       furniture: results.furniture,
       designers: results.designers
     });

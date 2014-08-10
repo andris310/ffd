@@ -12,6 +12,7 @@ router.get('/furniture', function(req, res) {
     }
 
     res.render('furniture', {
+      alias: 'furniture',
       furniture: furnitures
     });
   });
@@ -20,6 +21,7 @@ router.get('/furniture', function(req, res) {
 // New furniture template page
 router.get('/new-furniture', function(req, res) {
   res.render('new_furniture', {
+    alias: 'new_furniture',
     title: 'New Furniture'
   });
 });

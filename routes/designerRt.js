@@ -13,6 +13,7 @@ router.get('/designers', function(req, res) {
 
     res.render('designers', {
       title: 'Designers',
+      alias: 'designers',
       designers: designers
     });
   });
@@ -20,7 +21,8 @@ router.get('/designers', function(req, res) {
 
 router.get('/new-designer', function(req, res) {
   res.render('new_designer', {
-    title: 'New Designer'
+    title: 'New Designer',
+    alias: 'new_designer'
   });
 });
 

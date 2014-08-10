@@ -5,13 +5,10 @@ block content
   ul
     for peace in furniture
       li #{peace.name}
-      //- form(action='/destroy-furniture/#{peace._id}', method='post')
-      //-   button(type='submit') Delete
+        a(href='', fid=peace._id).delete-furn Delete
 
   a(href='/new-designer') New Designer
   ul
     for designer in designers
       li #{designer.firsname} #{designer.lastname}
-
-  script.
-    console.log(furniture)
+        a(href='', did=designer._id).delete-designer Delete
