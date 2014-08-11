@@ -2,6 +2,7 @@ extends layout
 
 block content
   h1= title
+  a(href='/new-designer') New Designer
   ul
     for designer in designers
       li #{designer.firstname} #{designer.lastname}

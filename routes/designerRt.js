@@ -45,4 +45,19 @@ router.post('/add-designer', function(req, res) {
   });
 });
 
+// Delete new furnitire
+router.delete('/destroy-designer/:designer_id', function(req, res) {
+  console.log(req.params);
+  Designer.remove({
+    _id: req.params.designer_id
+  }, function(err, designer) {
+    if (err) {
+      res.send(err);
+      return;
+    }
+    res.location('designers');
+    res.redirect('designers');
+  });
+});
+
 module.exports = router;

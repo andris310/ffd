@@ -48,18 +48,14 @@ router.post('/add-furniture', function(req, res) {
 
 // Delete new furnitire
 router.delete('/destroy-furniture/:furniture_id', function(req, res) {
-  var furniture = new Furniture();
-  console.log('ID........' + req.params.furniture_id)
   Furniture.remove({
-    id: req.params.furniture_id
+    _id: req.params.furniture_id
   }, function(err, furniture) {
     if (err) {
       res.send(err);
       return;
     }
-
-    res.location('furniture');
-    res.redirect('furniture');
+    res.redirect(req.get('referer'));
   });
 });
 
