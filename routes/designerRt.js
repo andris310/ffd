@@ -20,6 +20,10 @@ router.get('/designers', function(req, res) {
 });
 
 router.get('/new-designer', function(req, res) {
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
   res.render('new_designer', {
     title: 'New Designer',
     alias: 'new_designer'
@@ -28,6 +32,10 @@ router.get('/new-designer', function(req, res) {
 
 // Crete new furniture
 router.post('/add-designer', function(req, res) {
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
   var designer = new Designer();
 
   designer.firstname = req.body.firstname;
@@ -47,7 +55,10 @@ router.post('/add-designer', function(req, res) {
 
 // Delete new furnitire
 router.delete('/destroy-designer/:designer_id', function(req, res) {
-  console.log(req.params);
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
   Designer.remove({
     _id: req.params.designer_id
   }, function(err, designer) {

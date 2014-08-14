@@ -1,6 +1,10 @@
 extends layout
 
 block content
+  if (user)
+    .login
+      span #{user.username}
+      a(href="/logout") Logout
   .temporary
     h1 famousfurnituredesign.com
     p is changing and will be back soon.

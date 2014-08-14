@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Register Page
+  form(role='form', action="/register", method="post", style='max-width: 300px;')
+    label(for='username') Username
+    input(type='text', name="username", placeholder='Enter Username')
+
+    label(for='password') Password
+    input(type='password', name="password", placeholder='Password')
+
+    button(type='submit') Submit
+    &nbsp;
+    a(href='/')
+      button(type="button") Cancel
+    h4= info

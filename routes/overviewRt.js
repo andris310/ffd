@@ -6,6 +6,10 @@ var Designer = require('../models/designerMdl');
 require('../ffd_modules/connection').db();
 
 router.get('/overview-panel', function(req, res) {
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
   var furnitureList, designers;
 
   var parallels = {};

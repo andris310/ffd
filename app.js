@@ -3,12 +3,17 @@ var app = express();
 
 var jade = require('jade');
 var stylus = require('stylus');
+
 var staticRt = require('./routes/staticRt');
 var furnitureRt = require('./routes/furnitureRt');
 var designerRt = require('./routes/designerRt');
 var overviewRt = require('./routes/overviewRt');
+var userRt = require('./routes/userRt');
+
 var http = require('http');
 var path = require('path');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
 
 var favicon = require('serve-favicon');
 var methodOverride = require('method-override');
@@ -17,6 +22,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var errorHandler = require('errorhandler');
+
+var User = require('./models/userMdl');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -39,17 +46,28 @@ app.use(
 
 app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(morgan('combined'));
+app.use(cookieParser());
 app.use(bodyParser.json());
+// app.use(session());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(session({ secret: 'sessionsecret' }));
 app.use(methodOverride());
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// passport config
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use('/', staticRt);
 app.use('/', furnitureRt);
 app.use('/', designerRt);
 app.use('/', overviewRt);
+app.use('/', userRt);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

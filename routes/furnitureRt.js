@@ -20,6 +20,10 @@ router.get('/furniture', function(req, res) {
 
 // New furniture template page
 router.get('/new-furniture', function(req, res) {
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
   res.render('new_furniture', {
     alias: 'new_furniture',
     title: 'New Furniture'
@@ -28,6 +32,10 @@ router.get('/new-furniture', function(req, res) {
 
 // Crete new furniture
 router.post('/add-furniture', function(req, res) {
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
   var furniture = new Furniture();
 
   furniture.name = req.body.name;
@@ -48,6 +56,10 @@ router.post('/add-furniture', function(req, res) {
 
 // Delete new furnitire
 router.delete('/destroy-furniture/:furniture_id', function(req, res) {
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
   Furniture.remove({
     _id: req.params.furniture_id
   }, function(err, furniture) {
