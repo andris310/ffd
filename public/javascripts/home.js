@@ -19,14 +19,11 @@ $(function() {
     if (slideIndex < slideCount) {
       leftMargin = -(slideWidth * slideIndex);
       slideIndex++;
-      console.log(slideIndex)
-      console.log(leftMargin)
     } else {
       leftMargin = 0;
       slideIndex = 1;
-      console.log(slideIndex)
-      console.log(leftMargin)
     }
+
     slideContainer.animate({
       marginLeft: leftMargin
     }, 500);

@@ -13,7 +13,7 @@ a {
 .temporary {
   color: #808080;
   margin: auto;
-  height: 200px;
+  height: 120px;
   text-align: center;
 }
 .temporary h1 {
@@ -29,6 +29,7 @@ a {
   display: block;
 }
 #slider {
+  margin: auto;
   overflow: hidden;
 }
 #slider ul {
