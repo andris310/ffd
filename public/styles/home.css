@@ -11,15 +11,10 @@ a {
   color: #00b7ff;
 }
 .temporary {
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   color: #808080;
   margin: auto;
   height: 200px;
   text-align: center;
-  position: absolute;
 }
 .temporary h1 {
   font-weight: 200;
@@ -32,4 +27,15 @@ a {
 }
 .new-form li label {
   display: block;
+}
+#slider {
+  overflow: hidden;
+}
+#slider ul {
+  display: block;
+  padding-left: 0px;
+}
+#slider ul li {
+  list-style: none;
+  display: inline-block;
 }
