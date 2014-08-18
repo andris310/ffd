@@ -27,5 +27,5 @@ $(function() {
     slideContainer.animate({
       marginLeft: leftMargin
     }, 500);
-  }, 3000);
+  }, 4000);
 });
