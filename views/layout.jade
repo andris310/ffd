@@ -14,9 +14,16 @@ html(lang="en")
       ga('send', 'pageview');
 
   body
+    if (user)
+      .login
+        span #{user.username}
+        a(href="/logout") Logout
+        a(href='/new-furniture') new F
+        a(href='/new-designer') new D
     block content
 
   block scripts
     script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js')
     script(src='//ajax.googleapis.com/ajax/libs/jqueryui/1.11.0/jquery-ui.min.js')
     script(src='/javascripts/#{alias}.js')
+    //- script(src='/javascripts/s3upload.js')

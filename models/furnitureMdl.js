@@ -18,7 +18,7 @@ var furnitureSchema = new Schema({
     type: String,
     required: true
   },
-  imageUrl: String
+  image_url: String
 });
 
 module.exports = mongoose.model('Furniture', furnitureSchema);

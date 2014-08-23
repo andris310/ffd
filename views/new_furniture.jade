@@ -17,7 +17,14 @@ block content
         input(type='text', id='year', name='year')
 
       li
+        p(id='status') Please select a file
+        input(type='file', id='files')
+        input(type='hidden' id='image_url', name='image_url', value='')
+
+      li
         label(for='description')
         textarea(cols='60', rows='10', id='description', name='description')
 
     button(type='submit') Save
+
+//- script(src='/javascripts/s3upload.js')
