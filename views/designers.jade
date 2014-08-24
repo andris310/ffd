@@ -4,4 +4,5 @@ block content
   h1= title
   ul
     for designer in designers
-      li #{designer.firstname} #{designer.lastname}
+      li
+        a(href='/designers/' + designer.url) #{designer.firstname} #{designer.lastname}
