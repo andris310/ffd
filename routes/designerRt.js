@@ -19,6 +19,15 @@ router.get('/designers', function(req, res) {
   });
 });
 
+router.get('/designers/:url', function(req, res) {
+  Designer.findOne({url: req.params.url}, function(err, result) {
+    res.render('designer_page', {
+      alias: 'designer_page',
+      designer: result
+    });
+  });
+});
+
 router.get('/new-designer', function(req, res) {
   if (!req.user) {
     res.redirect(307, '/');
@@ -41,6 +50,7 @@ router.post('/add-designer', function(req, res) {
   designer.firstname = req.body.firstname;
   designer.lastname = req.body.lastname;
   designer.bio = req.body.bio;
+  designer.url = req.body.firstname.toLowerCase() + '-' + req.body.lastname.toLowerCase();
 
   designer.save(function(err) {
     if (err) {
@@ -50,6 +60,37 @@ router.post('/add-designer', function(req, res) {
 
     res.location('designers');
     res.redirect('designers');
+  });
+});
+
+router.get('/update-designer/:id', function(req, res) {
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
+  Designer.findById(req.params.id, function(err, result) {
+    res.render('new_designer', {
+      alias: 'new_designer',
+      designer: result
+    });
+  });
+})
+.post('/update-designer/:id', function(req, res) {
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
+  Designer.findByIdAndUpdate(req.params.id, {
+    "firstname": req.body.firstname,
+    "lastname": req.body.lastname,
+    "bio": req.body.bio,
+    "url": req.body.firstname.toLowerCase() + '-' + req.body.lastname.toLowerCase()
+  }, function(err, result) {
+    if (err) {
+      res.send(err);
+    }
+
+    res.redirect('/designers');
   });
 });
 

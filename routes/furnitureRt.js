@@ -71,7 +71,7 @@ router.get('/update-furniture/:id', function(req, res) {
     }
 
     res.redirect('/furniture');
-  })
+  });
 });
 
 // Crete new furniture

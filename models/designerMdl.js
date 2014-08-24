@@ -13,6 +13,11 @@ var designerSchema = new Schema({
   bio: {
     type: String,
     required: true
+  },
+  url: {
+    type: String,
+    required: true,
+    unique: true
   }
 });
 

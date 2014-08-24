@@ -2,18 +2,20 @@ extends layout
 
 block content
   h3= title
-  form(name='addDesigner', method='post', action='/add-designer').new-form
+  form(name='addDesigner', method='post', action=designer ? '/update-designer/' + designer._id : '/add-designer').new-form
     ul
       li
         label(for='firstname') First Name
-        input(type='text', id='firstname', name='firstname')
+        input(type='text', id='firstname', name='firstname', value=designer && designer.firstname ? designer.firstname : '')
 
       li
         label(for='lastname') Last Name
-        input(type='text', id='lastname', name='lastname')
+        input(type='text', id='lastname', name='lastname', value=designer && designer.lastname ? designer.lastname : '')
 
       li
         label(for='bio') Bio
         textarea(cols='60', rows='10', id='bio', name='bio')
+          if designer && designer.bio
+            | #{designer.bio}
 
     button(type='submit') Save
