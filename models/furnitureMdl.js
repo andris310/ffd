@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 var furnitureSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   designer: {
     type: String,
@@ -18,7 +19,16 @@ var furnitureSchema = new Schema({
     type: String,
     required: true
   },
-  image_url: String
+  image_url: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  url: {
+    type: String,
+    required: true,
+    unique: true
+  }
 });
 
 module.exports = mongoose.model('Furniture', furnitureSchema);

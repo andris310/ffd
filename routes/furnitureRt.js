@@ -20,6 +20,15 @@ router.get('/furniture', function(req, res) {
   });
 });
 
+router.get('/furniture/:furniture_url', function(req, res) {
+  Furniture.findOne({url: req.params.furniture_url}, function(err, result) {
+    res.render('furniture_page', {
+      alias: 'furniture_page',
+      furniture: result
+    });
+  });
+});
+
 // New furniture template page
 router.get('/new-furniture', function(req, res) {
   if (!req.user) {
@@ -32,14 +41,37 @@ router.get('/new-furniture', function(req, res) {
   });
 });
 
-router.get('/update-furniture', function(req, res) {
+router.get('/update-furniture/:id', function(req, res) {
   if (!req.user) {
     res.redirect(307, '/');
   }
 
-  res.render('new_furniture', {
-    alias: 'new_furniture'
+  Furniture.findById(req.params.id, function(err, furniture) {
+    res.render('new_furniture', {
+      alias: 'new_furniture',
+      furniture: furniture
+    });
   });
+})
+.post('/update-furniture/:id', function(req, res) {
+  if (!req.user) {
+    res.redirect(307, '/');
+  }
+
+  Furniture.findByIdAndUpdate(req.params.id, {
+    "name": req.body.name,
+    "designer": req.body.designer,
+    "year": req.body.year,
+    "image_url": req.body.image_url,
+    "description": req.body.description,
+    "url": req.body.name.toLowerCase().replace(/\s+/g, '-')
+  }, function(err, result) {
+    if (err) {
+      res.send(err);
+    }
+
+    res.redirect('/furniture');
+  })
 });
 
 // Crete new furniture
@@ -55,6 +87,7 @@ router.post('/add-furniture', function(req, res) {
   furniture.year = req.body.year;
   furniture.image_url = req.body.image_url;
   furniture.description = req.body.description;
+  furniture.url = furniture.name.toLowerCase().replace(/\s+/g, '-');
 
   furniture.save(function(err) {
     if (err) {

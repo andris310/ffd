@@ -2,29 +2,37 @@ extends layout
 
 block content
   h3 Add Furniture
-  form(name='addFurniture', method='post', action='/add-furniture').new-form
+  form(name='addFurniture', method='post', action=furniture ? '/update-furniture/' + furniture._id : '/add-furniture').new-form
     ul
       li
         label(for='name') Name
-        input(type='text', id='name', name='name')
+        input(type='text', id='name', name='name', value=furniture &&furniture.name ? '#{furniture.name}' : '')
 
       li
         label(for='designer') Designer
-        input(type='text', id='designer', name='designer')
+        input(type='text', id='designer', name='designer', value=furniture && furniture.designer ? '#{furniture.designer}' : '')
 
       li
         label(for='year') Year
-        input(type='text', id='year', name='year')
+        input(type='text', id='year', name='year', value=furniture && furniture.year ? '#{furniture.year}' : '')
 
       li
         p(id='status') Please select a file
+        if furniture && furniture.image_url
+          p Image path: #{furniture.image_url}
+        if furniture && furniture.url
+          p Url Extension: #{furniture.url}
+
         input(type='file', id='files')
-        input(type='hidden' id='image_url', name='image_url', value='')
+        input(type='hidden' id='image_url', name='image_url', value=furniture && furniture.image_url ? '#{furniture.image_url}' : '')
 
       li
         label(for='description')
         textarea(cols='60', rows='10', id='description', name='description')
+          if furniture && furniture.description
+            | #{furniture.description}
 
     button(type='submit') Save
 
-//- script(src='/javascripts/s3upload.js')
+//- script.
+//-   - console.log(furniture)

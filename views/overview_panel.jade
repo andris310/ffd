@@ -5,6 +5,7 @@ block content
   ul
     for peace in furniture
       li #{peace.name}
+        a(href='/update-furniture/' + peace._id).update Update
         a(href='', fid=peace._id).delete-furn Delete
 
   a(href='/new-designer') New Designer

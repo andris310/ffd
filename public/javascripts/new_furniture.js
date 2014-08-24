@@ -128,7 +128,6 @@ function s3_upload(){
     var url_elem = document.getElementById("image_url");
     var fileName = document.getElementById('files').files[0].name;
     //- var preview_elem = document.getElementById("preview");
-    debugger;
     var s3upload = new S3Upload({
       file_dom_selector: 'files',
       s3_object_name: fileName,

@@ -4,6 +4,8 @@ block content
   h1= title
   ul
     each peace, i in furniture
-      li= peace.name
+      li
+        a(href='/furniture/' + peace.url)= peace.url
+        h1= peace.name
       li
         img(src=peace.image_url)

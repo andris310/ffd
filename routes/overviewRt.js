@@ -9,10 +9,9 @@ router.get('/overview-panel', function(req, res) {
   if (!req.user) {
     res.redirect(307, '/');
   }
-  console.log(process.env.TEST_VARIABLE)
-  var furnitureList, designers;
 
   var parallels = {};
+  var furnitureList, designers;
 
   parallels.furniture = function(callback) {
     Furniture.find(function(err, furnitures) {
