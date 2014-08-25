@@ -2,10 +2,9 @@ extends layout
 
 block content
   h1= title
-  ul
+  ul.thumb-list
     each peace, i in furniture
       li
-        a(href='/furniture/' + peace.url)= peace.url
-        h1= peace.name
-      li
-        img(src=peace.image_url)
+        a(href='/furniture/' + peace.url)
+          p= peace.name
+          img(src='/images/thumbs/' + peace.name.replace(/\s+/g, '-') + '-thmb.jpg').thumb

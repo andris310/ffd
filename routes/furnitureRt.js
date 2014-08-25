@@ -107,7 +107,6 @@ router.get('/sign_s3', function(req, res){
     var now = new Date();
     var expires = Math.ceil((now.getTime() + 10000)/1000); // 10 seconds from now
     var amz_headers = "x-amz-acl:public-read";
-
     var put_request = "PUT\n\n"+mime_type+"\n"+expires+"\n"+amz_headers+"\n/"+process.env.S3_BUCKET+"/"+object_name;
     var signature = crypto.createHmac('sha1', process.env.AWS_SECRET_KEY).update(put_request).digest('base64');
     signature = encodeURIComponent(signature.trim());

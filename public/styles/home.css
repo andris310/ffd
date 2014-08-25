@@ -1,32 +1,38 @@
+body {
+  margin-top: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+.login {
+  top: 5px;
+  right: 5px;
+  position: absolute;
+}
+.login a {
+  color: #00b7ff;
+  margin: 3px 5px;
+}
 ul {
   padding-left: 0px;
 }
 ul li {
   list-style: none;
 }
-body {
-  padding: 50px;
-  font-family: 'Roboto', sans-serif;
-}
-.login {
-  top: 5px;
-  left: 5px;
-  position: absolute;
-}
 a {
-  color: #00b7ff;
+  text-decoration: none;
 }
-.temporary {
-  color: #808080;
+.wrap {
   margin: auto;
-  height: 120px;
-  text-align: center;
+  width: 880px;
 }
-.temporary h1 {
-  font-weight: 200;
+#menu {
+  background-color: #fff;
 }
-.temporary p {
-  text-transform: capitalize;
+#menu ul {
+  margin: 0px;
+}
+#menu ul li {
+  padding: 10px;
+  display: inline-block;
 }
 .new-form li label {
   display: block;
