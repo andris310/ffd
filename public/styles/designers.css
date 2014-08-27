@@ -1,6 +1,45 @@
+body {
+  margin-top: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+.login {
+  top: 5px;
+  right: 5px;
+  position: absolute;
+}
+.login a {
+  color: #00b7ff;
+  margin: 3px 5px;
+}
 ul {
   padding-left: 0px;
 }
 ul li {
   list-style: none;
+}
+a {
+  text-decoration: none;
+}
+#logo {
+  float: left;
+  display: block;
+  font-size: 58px;
+  font-weight: 100;
+}
+.wrap {
+  margin: auto;
+  width: 880px;
+}
+#menu {
+  float: right;
+  display: block;
+  margin-top: 34px;
+  background-color: #fff;
+}
+#menu ul {
+  margin: 0px;
+}
+#menu ul li {
+  padding: 10px;
+  display: inline-block;
 }

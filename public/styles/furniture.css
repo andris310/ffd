@@ -20,11 +20,20 @@ ul li {
 a {
   text-decoration: none;
 }
+#logo {
+  float: left;
+  display: block;
+  font-size: 58px;
+  font-weight: 100;
+}
 .wrap {
   margin: auto;
   width: 880px;
 }
 #menu {
+  float: right;
+  display: block;
+  margin-top: 34px;
   background-color: #fff;
 }
 #menu ul {
@@ -33,6 +42,9 @@ a {
 #menu ul li {
   padding: 10px;
   display: inline-block;
+}
+.thumb-list ul {
+  margin-top: 0px !important;
 }
 .thumb-list li {
   margin: 10px 20px;
