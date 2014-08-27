@@ -44,7 +44,7 @@ a {
   display: inline-block;
 }
 .thumb-list ul {
-  margin-top: 0px !important;
+  margin-top: 0px;
 }
 .thumb-list li {
   margin: 10px 20px;
