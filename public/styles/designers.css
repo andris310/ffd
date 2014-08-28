@@ -20,6 +20,9 @@ ul li {
 a {
   text-decoration: none;
 }
+p {
+  white-space: pre-line;
+}
 #logo {
   float: left;
   display: block;
@@ -56,6 +59,7 @@ a {
 }
 .thumb-list li a {
   color: #000;
+  display: block;
 }
 .thumb-list li p {
   top: 0;

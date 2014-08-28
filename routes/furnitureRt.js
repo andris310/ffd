@@ -86,7 +86,7 @@ router.post('/add-furniture', function(req, res) {
   furniture.designer = req.body.designer;
   furniture.year = req.body.year;
   furniture.image_url = req.body.image_url;
-  furniture.description = req.body.description;
+  furniture.description = req.body.description.replace(/\r|\n|\r\n/g, '<br>');
   furniture.url = furniture.name.toLowerCase().replace(/\s+/g, '-');
 
   furniture.save(function(err) {
