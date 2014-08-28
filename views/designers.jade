@@ -1,8 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  ul
+  ul.thumb-list
     for designer in designers
       li
-        a(href='/designers/' + designer.url) #{designer.firstname} #{designer.lastname}
+        a(href='/designers/' + designer.url)
+          p #{designer.firstname} #{designer.lastname}
