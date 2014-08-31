@@ -16,6 +16,7 @@ router.get('/furniture', function(req, res) {
     res.render('furniture', {
       title: 'Famous Furniture Design',
       alias: 'furniture',
+      metaDescription: 'List of few most famous furniture designs - chairs, tables... In no particular order.',
       furniture: furnitures
     });
   });
@@ -26,6 +27,7 @@ router.get('/furniture/:furniture_url', function(req, res) {
     res.render('furniture_page', {
       title: result.name + ' by ' + result.designer,
       alias: 'furniture_page',
+      metaDescription: result.metadescription,
       furniture: result
     });
   });
@@ -66,6 +68,7 @@ router.get('/update-furniture/:id', function(req, res) {
     "year": req.body.year,
     "image_url": req.body.image_url,
     "description": req.body.description,
+    "metadescription": req.body.metadescription,
     "url": req.body.name.toLowerCase().replace(/\s+/g, '-')
   }, function(err, result) {
     if (err) {
@@ -89,6 +92,7 @@ router.post('/add-furniture', function(req, res) {
   furniture.year = req.body.year;
   furniture.image_url = req.body.image_url;
   furniture.description = req.body.description.replace(/\r|\n|\r\n/g, '<br>');
+  furniture.metadescription = req.body.metadescription;
   furniture.url = furniture.name.toLowerCase().replace(/\s+/g, '-');
 
   furniture.save(function(err) {

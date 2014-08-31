@@ -14,6 +14,9 @@ var designerSchema = new Schema({
     type: String,
     required: true
   },
+  metadescription: {
+    type: String
+  },
   url: {
     type: String,
     required: true,

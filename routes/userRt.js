@@ -24,7 +24,10 @@ require('../ffd_modules/connection').db();
 // });
 
 router.get('/login', function(req, res) {
-  res.render('login', { user : req.user });
+  res.render('login', {
+    user : req.user,
+    alias: 'login'
+  });
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {

@@ -14,8 +14,14 @@ block content
 
       li
         label(for='bio') Bio
-        textarea(cols='60', rows='10', id='bio', name='bio')
+        textarea(cols='80', rows='10', id='bio', name='bio')
           if designer && designer.bio
             | #{designer.bio}
+
+      li
+        label(for='metadescription') Meta Description
+        textarea(cols='80', rows='3', id='metadescription', name='metadescription')
+          if designer && designer.metadescription
+            | #{designer.metadescription}
 
     button(type='submit') Save

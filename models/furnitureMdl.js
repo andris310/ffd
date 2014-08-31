@@ -19,6 +19,9 @@ var furnitureSchema = new Schema({
     type: String,
     required: true
   },
+  metadescription: {
+    type: String
+  },
   image_url: {
     type: String,
     required: true,

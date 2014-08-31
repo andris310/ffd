@@ -32,6 +32,12 @@ block content
           if furniture && furniture.description
             | #{furniture.description}
 
+      li
+        label(for='metadescription') Meta Description
+        textarea(cols='80', rows='3', id='metadescription', name='metadescription')
+          if furniture && furniture.metadescription
+            | #{furniture.metadescription}
+
     button(type='submit') Save
 
 //- script.

@@ -24,6 +24,7 @@ router.get('/designers/:url', function(req, res) {
     res.render('designer_page', {
       title: result.firstname + ' ' + result.lastname,
       alias: 'designer_page',
+      metaDescription: result.metadescription,
       designer: result
     });
   });
@@ -51,6 +52,7 @@ router.post('/add-designer', function(req, res) {
   designer.firstname = req.body.firstname;
   designer.lastname = req.body.lastname;
   designer.bio = req.body.bio;
+  designer.metadescription = req.body.metadescription;
   designer.url = req.body.firstname.toLowerCase() + '-' + req.body.lastname.toLowerCase();
 
   designer.save(function(err) {
@@ -85,6 +87,7 @@ router.get('/update-designer/:id', function(req, res) {
     "firstname": req.body.firstname,
     "lastname": req.body.lastname,
     "bio": req.body.bio,
+    "metadescription": req.body.metadescription,
     "url": req.body.firstname.toLowerCase() + '-' + req.body.lastname.toLowerCase()
   }, function(err, result) {
     if (err) {
