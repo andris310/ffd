@@ -6,6 +6,7 @@ body .header {
   overflow: auto;
   display: block;
   margin-bottom: 35px;
+  border-bottom: 1px solid #e0e0e0;
 }
 .login {
   top: 5px;
@@ -32,7 +33,8 @@ p {
 #logo {
   float: left;
   display: block;
-  font-size: 58px;
+  font-size: 36px;
+  margin-top: 20px;
   font-weight: 100;
 }
 .wrap {
@@ -51,6 +53,23 @@ p {
 #menu ul li {
   padding: 10px;
   display: inline-block;
+}
+#menu ul li:last-of-type {
+  padding-right: 0px;
+}
+#menu ul li a {
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+  color: #4b5364;
+}
+#menu ul li a:hover {
+  -webkit-transition: color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  color: #76bdff;
 }
 .thumb-list ul {
   margin-top: 0px;
