@@ -12,7 +12,7 @@ router.get('/designers', function(req, res) {
     }
 
     res.render('designers', {
-      title: 'Designers',
+      title: 'Famous Furniture Designers',
       alias: 'designers',
       designers: designers
     });
@@ -22,6 +22,7 @@ router.get('/designers', function(req, res) {
 router.get('/designers/:url', function(req, res) {
   Designer.findOne({url: req.params.url}, function(err, result) {
     res.render('designer_page', {
+      title: result.firstname + ' ' + result.lastname,
       alias: 'designer_page',
       designer: result
     });

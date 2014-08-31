@@ -14,6 +14,7 @@ router.get('/furniture', function(req, res) {
     }
 
     res.render('furniture', {
+      title: 'Famous Furniture Design',
       alias: 'furniture',
       furniture: furnitures
     });
@@ -23,6 +24,7 @@ router.get('/furniture', function(req, res) {
 router.get('/furniture/:furniture_url', function(req, res) {
   Furniture.findOne({url: req.params.furniture_url}, function(err, result) {
     res.render('furniture_page', {
+      title: result.name + ' by ' + result.designer,
       alias: 'furniture_page',
       furniture: result
     });

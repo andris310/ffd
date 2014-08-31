@@ -2,6 +2,11 @@ body {
   margin-top: 0px;
   font-family: 'Roboto', sans-serif;
 }
+body .header {
+  overflow: auto;
+  display: block;
+  margin-bottom: 35px;
+}
 .login {
   top: 5px;
   right: 5px;
@@ -21,6 +26,7 @@ a {
   text-decoration: none;
 }
 p {
+  font-weight: 200;
   white-space: pre-line;
 }
 #logo {

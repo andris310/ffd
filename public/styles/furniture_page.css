@@ -2,6 +2,11 @@ body {
   margin-top: 0px;
   font-family: 'Roboto', sans-serif;
 }
+body .header {
+  overflow: auto;
+  display: block;
+  margin-bottom: 35px;
+}
 .login {
   top: 5px;
   right: 5px;
@@ -21,6 +26,7 @@ a {
   text-decoration: none;
 }
 p {
+  font-weight: 200;
   white-space: pre-line;
 }
 #logo {
@@ -45,4 +51,21 @@ p {
 #menu ul li {
   padding: 10px;
   display: inline-block;
+}
+#menu ul li a {
+  -webkit-transition: color 0.2s ease-in-out;
+  -moz-transition: color 0.2s ease-in-out;
+  -o-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+  color: #4b5364;
+}
+#menu ul li a:hover {
+  -webkit-transition: color 0.3s ease-in-out;
+  -moz-transition: color 0.3s ease-in-out;
+  -o-transition: color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  color: #76bdff;
+}
+.furniture-image {
+  height: 405px;
 }

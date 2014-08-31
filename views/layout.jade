@@ -1,7 +1,7 @@
 doctype html
 html(lang="en")
   head
-    title Famous Furniture Design
+    title= title
     link(rel='stylesheet', href='/styles/#{alias}.css', type='text/css')
     link(href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900', rel='stylesheet', type='text/css')
     script.
@@ -14,7 +14,7 @@ html(lang="en")
       ga('send', 'pageview');
 
   body
-    header.wrap
+    header.wrap.header
       if (user)
         .login
           span #{user.username}
