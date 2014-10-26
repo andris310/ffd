@@ -88,7 +88,7 @@ router.get('/update-designer/:id', function(req, res) {
     "lastname": req.body.lastname,
     "bio": req.body.bio,
     "metadescription": req.body.metadescription,
-    "url": req.body.firstname.toLowerCase() + '-' + req.body.lastname.toLowerCase()
+    "url": req.body.firstname.toLowerCase().replace(/\s/g, "-") + '-' + req.body.lastname.toLowerCase().replace(/\s/g, "-")
   }, function(err, result) {
     if (err) {
       res.send(err);

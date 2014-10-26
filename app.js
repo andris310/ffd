@@ -53,7 +53,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 app.use(session({
-  secret: process.env.SESSION_SECRET
+  secret: process.env.SESSION_SECRET,
+  saveUninitialized: true,
+  resave: true
 }));
 app.use(methodOverride());
 app.use(passport.initialize());

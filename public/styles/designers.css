@@ -1,5 +1,6 @@
 body {
   margin-top: 0px;
+  margin-bottom: 80px;
   font-family: 'Roboto', sans-serif;
 }
 body .header {
@@ -34,8 +35,8 @@ p {
 #logo {
   float: left;
   display: block;
-  font-size: 36px;
-  margin-top: 20px;
+  font-size: 33px;
+  margin-top: 25px;
   font-weight: 100;
 }
 .wrap {
