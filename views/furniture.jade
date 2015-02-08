@@ -5,5 +5,5 @@ block content
     each peace, i in furniture
       li
         a(href='/furniture/' + peace.url)
-          p= peace.name
+          span= peace.name
           img(src='/images/thumbs/' + peace.name.replace(/\s+/g, '-') + '-thmb.jpg').thumb

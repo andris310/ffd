@@ -72,26 +72,6 @@ p {
   transition: color 0.3s ease-in-out;
   color: #76bdff;
 }
-@media screen and (max-width: 620px) {
-  .header {
-    height: 100px;
-  }
-  #logo {
-    float: none;
-    margin-top: 15px;
-    text-align: center;
-  }
-  #menu {
-    float: none;
-    width: 237px;
-    margin: 0 auto;
-  }
-}
-@media screen and (max-width: 380px) {
-  #logo {
-    font-size: 8.4vw;
-  }
-}
 .thumb-list ul {
   margin-top: 0px;
 }
@@ -131,4 +111,35 @@ p {
   -moz-transition: opacity 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
+}
+@media screen and (max-width: 910px) {
+  .thumb-list li {
+    width: 45%;
+    margin: 1% 2%;
+  }
+}
+@media screen and (max-width: 620px) {
+  .header {
+    height: 100px;
+  }
+  #logo {
+    float: none;
+    margin-top: 15px;
+    text-align: center;
+  }
+  #menu {
+    float: none;
+    width: 237px;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 585px) {
+  .thumb-list li {
+    width: 95%;
+  }
+}
+@media screen and (max-width: 380px) {
+  #logo {
+    font-size: 8.4vw;
+  }
 }
