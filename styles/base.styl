@@ -5,16 +5,15 @@ transition(property, time)
   transition property time ease-in-out
 
 body
-  margin-top 0px
-  margin-bottom 80px
+  margin 0px 15px 80px
   font-family 'Roboto', sans-serif
 
-  .header
-    height 76px
-    overflow auto
-    display block
-    margin-bottom 35px
-    border-bottom 1px solid #E0E0E0
+.header
+  height 76px
+  overflow auto
+  display block
+  margin-bottom 35px
+  border-bottom 1px solid #E0E0E0
 
 .login
   top 5px
@@ -73,3 +72,20 @@ p
           transition(color, 0.3s)
           color #76BDFF
 
+@media screen and (max-width 620px)
+  .header
+    height 100px
+
+  #logo
+    float none
+    margin-top 15px
+    text-align center
+
+  #menu
+    float none
+    width 237px
+    margin 0 auto
+
+@media screen and (max-width 380px)
+  #logo
+    font-size 8.4vw

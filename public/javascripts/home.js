@@ -2,13 +2,15 @@ var slider;
 var slides;
 var container;
 var slideWidth;
+var leftMargin;
+var slideIndex;
 var slideCount;
 var carouselWidth;
 var slideContainer;
 
 $(function() {
-  var leftMargin = 0;
-  var slideIndex = 1;
+  leftMargin = 0;
+  slideIndex = 1;
 
   slider = $('#slider');
   container = $('#container');
@@ -43,15 +45,14 @@ $(function() {
 function calculateSliderWidth() {
   slideWidth = container.width();
   carouselWidth = slideCount * slideWidth;
-  console.log('slideWidth: ', slideWidth);
-  console.log('carouselWidht:', carouselWidth);
 
   slider.css({
     width: slideWidth
   });
 
   slideContainer.css({
-    width: carouselWidth
+    width: carouselWidth,
+    marginLeft: -(slideWidth * slideIndex)
   });
 
   slides.css({
