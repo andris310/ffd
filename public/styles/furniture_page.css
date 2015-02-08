@@ -144,5 +144,9 @@ p {
   }
 }
 .furniture-image {
-  height: 405px;
+  max-height: 405px;
+}
+.furniture-image img {
+  width: 100%;
+  display: block;
 }
