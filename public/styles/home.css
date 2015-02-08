@@ -41,7 +41,7 @@ p {
 }
 .wrap {
   margin: auto;
-  width: 880px;
+  max-width: 880px;
 }
 #menu {
   float: right;
@@ -85,4 +85,8 @@ p {
 }
 #slider ul li {
   display: inline-block;
+}
+#slider ul li img {
+  width: 100%;
+  max-width: 880px;
 }

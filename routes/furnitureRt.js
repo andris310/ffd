@@ -14,7 +14,7 @@ router.get('/furniture', function(req, res) {
     }
 
     res.render('furniture', {
-      title: 'Famous Furniture Design',
+      title: 'Famous Furniture Design - List',
       alias: 'furniture',
       metaDescription: 'List of few most famous furniture designs - chairs, tables... In no particular order.',
       furniture: furnitures
